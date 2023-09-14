@@ -1,0 +1,17 @@
+{
+	"name": "Daily and Weekly Limit",
+	"properties": {
+		"content": {
+			"query": "Select * from sys.dm_external_data_processed;\n\nSelect * from sys.configurations\nwhere name like 'Data Processed %';\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
