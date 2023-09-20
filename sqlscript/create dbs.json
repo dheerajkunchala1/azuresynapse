@@ -1,0 +1,20 @@
+{
+	"name": "create dbs",
+	"properties": {
+		"folder": {
+			"name": "nyc_taxi/ldw"
+		},
+		"content": {
+			"query": "Use MASTER;\nGO\n\nCreate DATABASE nyc_taxi_ldw;\nGO\n\nAlter DATABASE nyc_taxi_ldw collate Latin1_General_100_BIN2_UTF8\nGo\n\nUse nyc_taxi_ldw\nGO\n\nCreate SCHEMA bronze\nGO\n\nCreate SCHEMA silver\nGO\n\nCreate SCHEMA gold\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi_ldw",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
