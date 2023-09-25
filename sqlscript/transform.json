@@ -1,0 +1,20 @@
+{
+	"name": "transform",
+	"properties": {
+		"folder": {
+			"name": "nyc_taxi/ldw"
+		},
+		"content": {
+			"query": "-- Example is based on AdventureWorks\nCREATE EXTERNAL TABLE silver.taxi_zone\n    WITH (\n            LOCATION = 'silver/taxi_zone',\n            DATA_SOURCE = nyc_tax_src,\n            FILE_FORMAT = ParquetFileFormat\n            ) AS\n\nSELECT *\nFROM brone.taxi_zone2;\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi_ldw",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
