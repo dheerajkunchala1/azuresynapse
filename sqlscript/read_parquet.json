@@ -5,7 +5,7 @@
 			"name": "nyc_taxi/ldw"
 		},
 		"content": {
-			"query": "SELECT TOP 100\n       [nyc].*,\n       [nyc].filename() as file_name1,\n       [nyc].filepath(1) as file_year,\n       [nyc].filepath(2) as file_month\nFROM  \n    OPENROWSET(\n        BULK 'silver/trip_data_green/year=*/month=*/*.parquet',\n        DATA_SOURCE = 'nyc_tax_src',\n        FORMAT='PARQUET'\n    ) as nyc\n",
+			"query": "Create view silver.vw_trip_data_green \nAS\nSELECT TOP 100\n       [nyc].*,\n       [nyc].filename() as file_name1,\n       [nyc].filepath(1) as file_year,\n       [nyc].filepath(2) as file_month\nFROM  \n    OPENROWSET(\n        BULK 'silver/trip_data_green/year=*/month=*/*.parquet',\n        DATA_SOURCE = 'nyc_tax_src',\n        FORMAT='PARQUET'\n    ) as nyc\n",
 			"metadata": {
 				"language": "sql"
 			},
