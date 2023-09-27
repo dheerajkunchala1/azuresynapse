@@ -38,7 +38,7 @@
 								"storedProcedureParameters": {
 									"month": {
 										"value": {
-											"value": "@if(less(length(string(item())),2),concat('0',item()),item())",
+											"value": "@if(less(length(string(item())),2),concat('0',item()),string(item()))",
 											"type": "Expression"
 										},
 										"type": "String"
