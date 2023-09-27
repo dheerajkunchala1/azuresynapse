@@ -38,7 +38,7 @@
 								"storedProcedureParameters": {
 									"month": {
 										"value": {
-											"value": "@item()",
+											"value": "@if(less(length(string(item())),2),concat('0',item()),item())",
 											"type": "Expression"
 										},
 										"type": "String"
@@ -80,10 +80,14 @@
 		],
 		"parameters": {
 			"p3_month": {
-				"type": "array"
+				"type": "array",
+				"defaultValue": [
+					1
+				]
 			},
 			"P3_year": {
-				"type": "array"
+				"type": "string",
+				"defaultValue": "2020"
 			}
 		},
 		"variables": {
@@ -92,6 +96,9 @@
 			},
 			"v_month1": {
 				"type": "Array"
+			},
+			"v_year": {
+				"type": "String"
 			}
 		},
 		"annotations": []
