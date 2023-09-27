@@ -1,0 +1,20 @@
+{
+	"name": "view_gold_trip_data",
+	"properties": {
+		"folder": {
+			"name": "nyc_taxi/ldw/usp"
+		},
+		"content": {
+			"query": "CREATE VIEW Trip_Data_Gold1\nAS SELECT *, nyc.filepath(1) AS [year1], nyc.filepath(2) AS [month1]\nFROM\n    OPENROWSET(\n        BULK 'gold/trip_data_green/year=*/month=*/*.parquet',\n        DATA_SOURCE = 'nyc_tax_src',\n        FORMAT='PARQUET'\n    ) AS nyc\n\n\nSelect COUNT(*) from Trip_Data_Gold1\n\nCREATE VIEW gold.Trip_Data_Gold2\nAS SELECT *\nFROM\n    OPENROWSET(\n        BULK 'gold/trip_data_green2/year=*/month=*/*.parquet',\n        DATA_SOURCE = 'nyc_tax_src',\n        FORMAT='PARQUET'\n    ) AS nyc\n\n\n    Select * from gold.Trip_Data_Gold2",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi_ldw",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
