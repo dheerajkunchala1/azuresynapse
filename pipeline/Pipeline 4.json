@@ -28,9 +28,10 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "ds_silver_taxi_zone",
+						"referenceName": "silver_taxi_Data",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			}
 		],
